@@ -90,7 +90,6 @@
 // // https://syncer.jp/how-to-use-geolocation-api
 
 
-
 //////////////////////////////////////
 // OpenStreetMapを描画する
 // 参考: 情基礎2(2019) https://ipl.sfc.keio.ac.jp/text/info2-2019-9/mashup-ja/#Web_OpenStreetMap
@@ -114,13 +113,15 @@ if (navigator.geolocation) {
     navigator.geolocation.watchPosition(
         function (position) {
             var data = position.coords;
-            var lat = fixedTo(precision, position.coords.latitude);
-            var lng = fixedTo(precision, position.coords.longitude);
+            var lat = parseFloat(fixedTo(precision, position.coords.latitude));
+            var lng = parseFloat(fixedTo(precision, position.coords.longitude));
             var accLatlng = position.coords.accuracy;
             var alt = position.coords.altitude;
             var accAlt = position.coords.altitudeAccuracy;
             var heading = position.coords.heading;
             var speed = position.coords.speed;
+
+            console.log(`Latitude: ${lat}, Longitude: ${lng}, Precision: ${precision}`);
 
             document.getElementById('result').innerHTML = '<dl><dt>緯度</dt><dd>' + lat
                 + '</dd><dt>経度</dt><dd>' + lng
