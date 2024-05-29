@@ -18,8 +18,8 @@ if(navigator.geolocation){
     navigator.geolocation.watchPosition(
 	function(position){
 	    var data = position.coords;
-	    var lat = fixedTo(position.coords.latitude);
-	    var lng = fixedTo(position.coords.longitude);
+	    var lat = fixedTo(precision, position.coords.latitude);
+	    var lng = fixedTo(precision, position.coords.longitude);
 	    var accLatlng = position.coords.accuracy;
 	    var alt = position.coords.altitude;
 	    var accAlt = position.coords.altitudeAccuracy;
