@@ -11,7 +11,7 @@ function fixedTo(x, value) {
 	return value.toFixed(x)
 }
 
-var precision = 2;
+var precision = 6;
 
 if(navigator.geolocation){
 
